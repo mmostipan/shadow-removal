@@ -24,8 +24,30 @@ a_mean_value = np.mean(a)
 b_mean_value = np.mean(b)
 
 
-print(l_mean_value , a_mean_value, b_mean_value)
+# the pixels with a value in L ≤ (mean (L) – standard deviation (L)/3)
+def l_shadow_pixels_classifier():
+    print("ss")
+
+
+# the pixels with lower values in both L and B planes
+def lb_shadow_pixels_classifier():
+    print("dd")
+
+
+# if mean(A) + mean(B) ≤ 256, then classify...
+if a_mean_value + b_mean_value <= 256:
+    l_shadow_pixels_classifier()
+
+else:
+    lb_shadow_pixels_classifier()
+
+
 # show both images
-cv2.imshow("original image", lab_img)
+cv2.imshow("image", lab_img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+
+
+
+
